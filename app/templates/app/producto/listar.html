@@ -1,0 +1,72 @@
+{% extends 'app/base.html' %}
+
+{% block js %}
+<script>
+    function eliminarProducto(id) {
+        Swal.fire({
+            "title":"¿Estas seguro?",
+            "text":"Esta accion no se puede revertir",
+            "icon":"question",
+            "showCancelButton":true,
+            "cancelButtonText":"No, Cancelar",
+            "confirmButtonText":"Si, Eliminar",
+            "reverseButtons":true,
+            "confirmButtonColor":"#dc3545"
+        })
+        .then(function(result) {
+            if(result.isConfirmed) {
+                window.location.href = "/eliminar-producto/"+id+"/"
+            }
+        })
+    }
+</script>
+{% endblock %}
+
+{% block contenido %}
+{% load static %}
+{% load humanize %}
+<br></br>
+<div class="card">
+    <div class="card-body">
+        <h2>Listado de productos</h2>
+        <hr>
+        <table class="table table-hover">
+            <tr class="table-info">
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Marca</th>
+                <th>Nuevo</th>
+                <th>Opciones</th>
+            </tr>
+            {% for p in entity %}
+            <tr>
+                <td>{{ p.nombre | title }}</td>
+                <td>${{ p.precio | intcomma }}</td>
+                <td>{{ p.marca | title }}</td>
+                <td>
+                    {% if p.nuevo %}
+                        SI
+                    {% else %}
+                        NO
+                    {% endif %}
+                </td>
+                <td>
+                    {% if perms.app.change_producto %}
+                    <a href="{% url 'modificar' p.id %}" class="btn btn-outline-success"><img src="{% static 'app/img/iconos/editar.png' %}" alt="Editar" width="23px" height="23px"></a>
+                    {% endif %}
+                    {% if perms.app.delete_producto %}
+                    <a href="#" onclick="eliminarProducto({{ p.id }})" class="btn btn-outline-danger"><img src="{% static 'app/img/iconos/basura.png' %}" alt="Eliminar" width="23px" height="23px"></a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <hr>
+        <div>
+            {% include 'app/paginator.html' %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

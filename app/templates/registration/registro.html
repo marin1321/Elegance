@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load crispy_forms_tags %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{% static 'app/img/iconos/elegance-icon.png' %}" />
+    <title>Registrate</title>
+</head>
+<style>
+    body {background: #FFE5F0 url({% static 'app/img/fondoregistro.jpg' %}) top center no-repeat; background-attachment: fixed; background-size: cover; margin: 0; width: 100%; height: auto;}
+</style>
+<body>
+    <div class="container">
+        <div class="btn-group" role="group" aria-label="Basic example" style="float: right; margin-top: 10px;">
+            <a href="{% url 'login' %}"><button type="button" class="btn btn-light">Iniciar sesion</button></a>
+            <a href="{% url 'home' %}"><button type="button" class="btn btn-light">Ir a home</button></a>
+        </div>
+        <br><br><br>
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Registrate</h1>
+                        <hr>
+                        <form action="" method="post">{% csrf_token %}
+
+                            {{ form | crispy }}
+                            
+                            <hr>
+                            <input type="submit" value="Registrar" class="btn btn-info ">
+                            
+                            <a href="{% url 'social:begin' 'facebook' %}"><button type="button" class="btn btn-primary" style="float: right;">Registrate con facebook</button></a>
+
+                        </form>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
