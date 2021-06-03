@@ -39,6 +39,7 @@ SOCIAL_AUTH_FACEBOOK_SECRET = "85f3a39adfc885493cf202f9d6032f69"
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 LOGIN_ERROR_URL = '/error-facebook/'
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -56,8 +57,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'social_django',
     'pwa',
+    'bootstrap_datepicker_plus',
+    'bootstrap4'
 ]
 
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

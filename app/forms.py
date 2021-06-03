@@ -7,7 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .validators import MaxSizeFileValidators
 from django.forms import ValidationError
-
+from bootstrap_datepicker_plus import DatePickerInput
 
 class ContactoForm(forms.ModelForm):
 
@@ -30,7 +30,7 @@ class ProductoForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            "fecha_fabricacion": SelectDateWidget
+            "fecha_fabricacion": DatePickerInput(format='%d/%m/%Y')
         }
 
 class RegistroUsuarioForm(UserCreationForm):

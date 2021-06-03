@@ -1,3 +1,6 @@
+{% load bootstrap4 %}       
+{% bootstrap_css %}         
+{% bootstrap_javascript jquery='full' %}  
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,8 +16,10 @@
     <link rel="shortcut icon" href="{% static 'app/img/iconos/elegance-icon.png' %}" />
     <link rel="stylesheet" href="{% static 'app/css/estilos.css' %}">
     {% load pwa %}
-
+    
     {% progressive_web_app_meta %}
+    
+        
 </head>
 <body>
 

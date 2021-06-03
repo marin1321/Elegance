@@ -11,6 +11,7 @@ class ProductoAdmin(admin.ModelAdmin):
     list_filter=['nuevo', 'marca', 'precio']
     list_per_page=5
     form = ProductoForm
+    
 
 class SuscriptoresAdmin(admin.ModelAdmin):
     list_display=['email']
