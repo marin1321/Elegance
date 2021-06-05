@@ -22,7 +22,7 @@ label.error {
 header {
     width: 100%;
     height: 110px;
-    background-color: #ffffff;
+    background-color: #FFE5F0;
     /*margin-left: 30px;
     padding-left: 30px;*//*right-top-bottom*/
     display: flex;
@@ -275,6 +275,9 @@ textarea {
     margin-top:50px;
 }
 
+.table-info th{
+    background-color: #FFE5F0;
+}
 
 /*MEDIA QUERIES*/
 
