@@ -23,16 +23,16 @@ class Producto(models.Model):
         return self.nombre
 
 opciones_consulta = [
-    [0, "consulta"],
-    [1, "reclamo"],
-    [2, "sugerencia"],
-    [3, "felitaciones"]
+    ["Consulta","Consulta"],
+    ["Reclamo","Reclamo"],
+    ["Sugerencia","Sugerencia"],
+    ["Felitaciones","Felitaciones"]
 ]
 
 class Contacto(models.Model):
     nombre = models.CharField(max_length=50)
-    correo = models.EmailField()
-    tipo_consulta = models.IntegerField(choices=opciones_consulta)
+    correo = models.EmailField(blank=True, null=True)
+    tipo_consulta = models.CharField(max_length=14, choices=opciones_consulta)
     mensaje = models.TextField()
     avisos = models.BooleanField()
 
@@ -41,6 +41,7 @@ class Contacto(models.Model):
 
 class Suscriptores(models.Model):
     email = models.EmailField(blank=True, null=True)
+    
 
 
     

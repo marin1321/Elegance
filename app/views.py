@@ -1,7 +1,6 @@
-from django.core import paginator
 from django.http.response import Http404
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Marca, Producto
+from .models import Contacto, Marca, Producto
 from .forms import ContactoForm, ProductoForm, RegistroUsuarioForm, SuscripcionForm
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -10,6 +9,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required, permission_required
 from rest_framework import viewsets
 from .serializers import ProductoSerializers, MarcaSerializers
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 # Create your views here.
@@ -64,10 +65,13 @@ def contacto(request):
         formulario = ContactoForm(data=request.POST)
         if formulario.is_valid():
             formulario.save()
+            correo = formulario.cleaned_data
+            send_mail(correo['tipo_consulta'], correo['mensaje'], correo.get('correo',''), ['elegancelomejor2021@gmail.com'],)
             data["mensaje"] = "contacto guardado"
         else:
             data["Form"] = formulario
-
+    else:
+        formulario=ContactoForm()
     return render(request, 'app/contacto.html', data)
 
 def galeria(request):
@@ -99,7 +103,7 @@ def listar_productos(request):
     page = request.GET.get('page', 1)
 
     try:
-        paginator = Paginator(productos, 10)
+        paginator = Paginator(productos, 6)
         productos = paginator.page(page)
     except:
         raise Http404

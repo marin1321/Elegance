@@ -39,11 +39,49 @@ SOCIAL_AUTH_FACEBOOK_SECRET = "85f3a39adfc885493cf202f9d6032f69"
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
 LOGIN_ERROR_URL = '/error-facebook/'
 
+JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 
+JET_SIDE_MENU_COMPACT = True
+
+
+JET_THEMES = [
+    {
+        'theme': 'default', # theme folder name
+        'color': '#47bac1', # color of the theme's button in user menu
+        'title': 'Default' # theme title
+    },
+    {
+        'theme': 'green',
+        'color': '#44b78b',
+        'title': 'Green'
+    },
+    {
+        'theme': 'light-green',
+        'color': '#2faa60',
+        'title': 'Light Green'
+    },
+    {
+        'theme': 'light-violet',
+        'color': '#a464c4',
+        'title': 'Light Violet'
+    },
+    {
+        'theme': 'light-blue',
+        'color': '#5EADDE',
+        'title': 'Light Blue'
+    },
+    {
+        'theme': 'light-gray',
+        'color': '#222',
+        'title': 'Light Gray'
+    }
+]
 # Application definition
 
 INSTALLED_APPS = [
     'admin_interface',
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -60,6 +98,8 @@ INSTALLED_APPS = [
     'bootstrap_datepicker_plus',
     'bootstrap4'
 ]
+
+
 
 BOOTSTRAP4 = {
     'include_jquery': True,
@@ -199,3 +239,12 @@ PWA_APP_ICONS_APPLE = [
 ]
 
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, "serviceworker.js")
+
+from decouple import config
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'elegancelomejor2021@gmail.com'
+EMAIL_HOST_PASSWORD = config('USER_MAIL_PASSWORD', default='lomejorelegance2021')

@@ -16,7 +16,10 @@ class ProductoAdmin(admin.ModelAdmin):
 class SuscriptoresAdmin(admin.ModelAdmin):
     list_display=['email']
 
+class ContactoAdmin(admin.ModelAdmin):
+    list_per_page=10
+
 admin.site.register(Marca)
 admin.site.register(Producto, ProductoAdmin)
-admin.site.register(Contacto)
+admin.site.register(Contacto, ContactoAdmin)
 admin.site.register(Suscriptores, SuscriptoresAdmin)

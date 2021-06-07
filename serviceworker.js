@@ -15,7 +15,7 @@ var filesToCache = [
     '/static/app/img/iconos/tik-tok.png',
     '/static/app/img/iconos/pinterest.png',
     '/static/app/img/iconos/whatsapp.png',
-    '/static/app/img/iconos/sinconexion.png',
+
 ];
 
 // Cache on install

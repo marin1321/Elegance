@@ -168,6 +168,21 @@ nav a:hover {
     color: black;
 }
 
+.boton2{
+    position: fixed;
+    bottom: 13px;
+    right: 2%;
+    margin-bottom: 10px; 
+    
+}
+
+.boton2 img{
+    width: 60px;
+    height: 60px;
+}
+
+
+
 /*FOOTER*/
 
 footer {

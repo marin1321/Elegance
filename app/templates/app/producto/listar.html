@@ -30,10 +30,11 @@
     <div class="card-body">
         <h2>Listado de productos</h2>
         <hr>
-        <table class="table table-hover">
+        <table class="table table">
             
             <tr class="table-info">
                 
+                <th></th>
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Marca</th>
@@ -43,6 +44,7 @@
             </tr>
             {% for p in entity %}
             <tr>
+                <td><img class="img" src="{{ p.imagen.url }}" alt="imagen producto" width="60" height="60"></td>
                 <td>{{ p.nombre | title }}</td>
                 <td>${{ p.precio | intcomma }}</td>
                 <td>{{ p.marca | title }}</td>
