@@ -80,6 +80,12 @@ def galeria(request):
     }
     return render(request, 'app/galeria.html', data)
 
+def preguntas(request):
+    data = {
+        'formsus':SuscripcionForm()
+    }
+    return render(request, 'app/preguntas.html', data)
+
 @permission_required('app.add_producto')
 def agregar_producto(request):
     data = {

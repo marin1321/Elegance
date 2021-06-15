@@ -1,7 +1,6 @@
 from django.db import router
 from django.urls import path, include
-from django.utils.regex_helper import normalize
-from .views import error_facebook, resgistro, eliminar_producto, modificar_producto, listar_productos,\
+from .views import error_facebook, preguntas, resgistro, eliminar_producto, modificar_producto, listar_productos,\
      agregar_producto, contacto, galeria, home, ProductoViewset, MarcaViewset
 from rest_framework import routers
 
@@ -13,6 +12,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('contacto/', contacto, name='contacto'),
     path('galeria/', galeria, name='galeria'),
+    path('preguntas_frecuentes', preguntas, name='preguntas'),
     path('agregar-producto', agregar_producto, name='agregar'),
     path('listar-productos', listar_productos, name='listar'),
     path('modificar-producto/<id>/', modificar_producto, name='modificar'),

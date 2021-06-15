@@ -1,6 +1,5 @@
 from django.db import models
-from django.db.models.deletion import RESTRICT
-from django.db.models.fields import BooleanField
+
 
 # Create your models here.
 
@@ -44,4 +43,4 @@ class Suscriptores(models.Model):
     
 
 
-    
+

@@ -133,21 +133,21 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends', 
+                'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
 
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link'] 
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', 'user_link']
 
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {  
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
   'fields': 'id, name, email, picture.type(large), link'
 }
 
 
-SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [               
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('name', 'name'),
     ('email', 'email'),
     ('picture', 'picture'),
