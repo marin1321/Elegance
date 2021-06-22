@@ -7,5 +7,4 @@ social-auth-app-django
 django-pwa
 django-bootstrap4
 django-bootstrap-datepicker-plus
-django-jet-reboot
 python-decouple
