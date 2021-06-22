@@ -86,6 +86,18 @@ def preguntas(request):
     }
     return render(request, 'app/preguntas.html', data)
 
+def terminos(request):
+    data = {
+        'formsus':SuscripcionForm()
+    }
+    return render(request, 'app/terminos.html', data)
+
+def etica(request):
+    data = {
+        'formsus':SuscripcionForm()
+    }
+    return render(request, 'app/etica.html', data)
+
 @permission_required('app.add_producto')
 def agregar_producto(request):
     data = {
