@@ -5,13 +5,12 @@ from .forms import ProductoForm
 # Register your models here.
 
 class ProductoAdmin(admin.ModelAdmin):
-    list_display=['nombre', 'precio', 'nuevo', 'marca']
-    list_editable=['precio']
+    list_display=['nombre', 'precio', 'marca']
     search_fields=['nombre']
-    list_filter=['nuevo', 'marca', 'precio']
+    list_filter=['marca', 'precio']
     list_per_page=5
     form = ProductoForm
-    
+
 
 class SuscriptoresAdmin(admin.ModelAdmin):
     list_display=['email']

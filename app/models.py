@@ -13,7 +13,6 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     precio = models.IntegerField()
     descripcion = models.TextField(blank=True, null=True)
-    nuevo = models.BooleanField()
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
     fecha_fabricacion = models.DateField()
     imagen = models.ImageField(upload_to="productos", blank=True, null=True)

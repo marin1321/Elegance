@@ -38,23 +38,15 @@
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th>Marca</th>
-                <th>Nuevo</th>
                 <th>Opciones</th>
                 
             </tr>
             {% for p in entity %}
             <tr>
-                <td><img class="img" src="{{ p.imagen.url }}" alt="imagen producto" width="60" height="60"></td>
+                <td><img class="img" src="{{ p.imagen.url }}" alt="imagen producto" width="75" height="60"></td>
                 <td>{{ p.nombre | title }}</td>
                 <td>${{ p.precio | intcomma }}</td>
                 <td>{{ p.marca | title }}</td>
-                <td>
-                    {% if p.nuevo %}
-                        SI
-                    {% else %}
-                        NO
-                    {% endif %}
-                </td>
                 <td>
                     {% if perms.app.change_producto %}
                     <a href="{% url 'modificar' p.id %}" class="btn btn-outline-success"><img src="{% static 'app/img/iconos/editar.png' %}" alt="Editar" width="23px" height="23px"></a>
