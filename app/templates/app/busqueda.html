@@ -19,28 +19,14 @@
 {% endblock %}
 
 {% block contenido %}
-<div class="slider">
-    <div>
-        <img src="{% static 'app/img/banner/1.png' %}" alt="">
-    </div>
-    <div>
-        <img src="{% static 'app/img/banner/2.png' %}" alt="">
-    </div>
-    <div>
-        <img src="{% static 'app/img/banner/3.png' %}" alt="">
-    </div>
-    <div>
-        <img src="{% static 'app/img/banner/4.png' %}" alt="">
-    </div>
-</div>
-<hr>
 
+<hr>
+<br>
 <center>
 <form action="{% url 'buscar' %}" method="GET">
 <button id="busc"><img src="{% static 'app/img/iconos/lupa.png' %}" alt="lupa" width="28" height="28"></button>
 <input type="search" placeholder="Buscar..." id="Buscador" name="buscar">
 </form></center><br>
-
 {% load humanize %}
 <h2>Productos</h2>
 <div class="productos">
@@ -84,6 +70,7 @@
           opacity: 1;
         }
         </style>
+    {% if productos %}
     {% for p in productos %}
     <div class="producto">
         <span class="tooltiptext">{{ p.descripcion }}</span>
@@ -99,6 +86,10 @@
         </div>
     </div>
     {% endfor %}
+    {% else %}
+    
+    <h2>No se encontraron</h2>
+    {% endif %}
 </div>
 <div class="boton2"></div>
 {% endblock %}

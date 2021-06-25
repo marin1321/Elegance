@@ -152,6 +152,8 @@ nav a:hover {
 
 .fondo_formulario{
     background-color: #FFE5F0;
+    box-shadow: 7px 7px 15px #592A08;
+    margin: 1%;
 }
 
 .espacio{
@@ -387,4 +389,18 @@ textarea {
         padding:20px 0;
     }
 
+}
+
+form #Buscador {
+    width: 500px;
+    border: transparent;
+    border-bottom: solid 2px rgb(0, 0, 0);
+    padding: 10px 0px 5px 10px;
+    outline: none;
+}
+
+#busc{
+    border: transparent;
+    background-color: rgb(255, 255, 255);
+    outline: none;
 }

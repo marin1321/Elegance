@@ -1,4 +1,4 @@
-from django.http.response import Http404
+from django.http.response import Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Contacto, Marca, Producto
 from .forms import ContactoForm, ProductoForm, RegistroUsuarioForm, SuscripcionForm
@@ -53,6 +53,16 @@ def home(request):
             data["formsus"] = formulario
 
     return render(request, 'app/home.html', data)
+
+def buscar(request):
+    if request.GET["buscar"]:
+        dato=request.GET["buscar"]
+        productos = Producto.objects.filter(nombre__icontains=dato) 
+
+        return render(request, 'app/busqueda.html', {'formsus':SuscripcionForm, 'productos':productos, 'query':dato})
+    else:
+        return redirect(to="home")
+
 
 def contacto(request):
     data = {
