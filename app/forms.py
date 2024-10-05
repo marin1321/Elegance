@@ -3,7 +3,8 @@ from .models import Suscriptores, Contacto, Producto
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .validators import MaxSizeFileValidators
-from bootstrap_datepicker_plus import DatePickerInput
+# from bootstrap_datepicker_plus import DatePickerInput
+from bootstrap_datepicker_plus import DatePickerInput;
 
 class ContactoForm(forms.ModelForm):
 

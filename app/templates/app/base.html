@@ -13,6 +13,9 @@
     {% block css %}
     {% endblock %}
     {% load crispy_forms_tags%}
+    <link href="{% static 'bootstrap-datepicker/css/bootstrap-datepicker3.min.css' %}" rel="stylesheet">
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
     <link rel="shortcut icon" href="{% static 'app/img/iconos/elegance-icon.png' %}" />
     <link rel="stylesheet" href="{% static 'app/css/estilos.css' %}">
     {% load pwa %}
