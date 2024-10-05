@@ -29,8 +29,8 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 ## Crdenciales admin
 
-user: admin
-pass: admin123
+- user: admin
+- pass: admin123
 
 ## Instalación
 
